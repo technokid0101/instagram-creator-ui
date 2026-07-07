@@ -1,0 +1,13 @@
+services:
+  - type: static_site
+    name: instagram-creator-ui
+    env: static
+    repo: https://github.com/sujatapawar/Spring-AI # Make sure this is your repo
+    branch: main
+    rootDir: instagram-creator-ui
+    build_command: npm install && npm run build
+    publish_path: dist
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: "/index.html"
