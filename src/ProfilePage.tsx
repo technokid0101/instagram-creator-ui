@@ -9,7 +9,7 @@ export default function ProfilePage() {
   const auth = useAuth();
 
   async function logout() {
-    await fetch(`${API_BASE_URL}/api/auth/logout`, { method: 'POST' });
+    await fetch(`${API_BASE_URL}/api/auth/logout`, { method: 'POST', credentials: 'include' });
     auth?.setAuthenticated(false);
     navigate('/login');
   }

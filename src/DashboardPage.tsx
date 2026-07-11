@@ -115,7 +115,7 @@ export default function DashboardPage() {
   const auth = useAuth();
 
   async function logout() {
-    await fetch(`${API_BASE_URL}/api/auth/logout`, { method: 'POST' });
+    await fetch(`${API_BASE_URL}/api/auth/logout`, { method: 'POST', credentials: 'include' });
     auth?.setAuthenticated(false);
     navigate('/login');
   }
@@ -159,6 +159,7 @@ export default function DashboardPage() {
         headers: { 
             "Content-Type": "application/json",
         },
+        credentials: 'include', // Include cookies in the request
         body: JSON.stringify(buildPayload(mode, form))
       });
 

@@ -28,7 +28,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const checkStatus = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/api/auth/status`);
+                const response = await fetch(`${API_BASE_URL}/api/auth/status`, { credentials: 'include' });
                 if (response.ok) {
                     const data = await response.json();
                     setAuthenticated(data.authenticated);
