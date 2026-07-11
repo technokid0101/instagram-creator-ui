@@ -19,7 +19,7 @@ function LoginPage() {
             const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
+                credentials: 'include', // CRITICAL: Ensure this is here
                 body: JSON.stringify({ username, password }),
             });
 
